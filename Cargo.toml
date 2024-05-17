@@ -1,0 +1,18 @@
+[package]
+name = "ms_bpd"
+version = "0.1.0"
+edition = "2021"
+description = "MS Poc test in Rust."
+
+[dependencies]
+warp = "0.3.0"
+tokio = { version = "1.37.0", features = ["full"] }
+tokio-test ="0.4.4"
+serde = { version = "1.0.202", features = ["derive"] }
+chrono = { version = "0.4.38", features = ["serde"] }
+log = "0.4.21"
+pretty_env_logger = "0.3.1"
+
+[dev-dependencies]
+serde_json = "1.0.44"
+serde_test = "1.0.104"
