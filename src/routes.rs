@@ -1,9 +1,9 @@
-// Provides RESTful API for games:
+//  RESTful API para juegos:
 //
-// - `GET /games`: return JSON list of games
-// - `POST /games`: create a new game entry
-// - `PUT /games/:id`: update a specyfic game
-// - `DELETE /games/:id`: delete a specyfic game
+// - `GET /games`: retorna un JSON con lista de juegos
+// - `POST /games`: crear una nueva entrada de games
+// - `PUT /games/:id`: actualiza un juego especifico
+// - `DELETE /games/:id`: elimina un juego especifico
 
 use warp::{Filter, Rejection, Reply};
 
@@ -11,7 +11,7 @@ use crate::custom_filters;
 use crate::handlers;
 use crate::schema::Db;
 
-// Root, all routes combined
+// Root, combinacion de todas las rutas
 pub fn games_routes(db: Db) -> impl Filter<Extract = impl Reply, Error = Rejection> + Clone {
     games_list(db.clone())
         .or(games_create(db.clone()))

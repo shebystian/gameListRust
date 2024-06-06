@@ -1,4 +1,5 @@
-
+use crate::routes::{games_routes};
+use crate::schema::Db;
 
 
 #[cfg(test)]
@@ -22,7 +23,7 @@ mod tests {
                 rating: 35,
                 genre: Genre::RolePlaying,
                 description: Some(String::from("Test description...")),
-                release_date: NaiveDate::from_ymd(2011, 9, 22).and_hms(0, 0, 0),
+                release_date: NaiveDate::from_ymd(2011, 9, 22).and_hms(0, 0, 0).to_string(),
             },
             Game {
                 id: 2,
@@ -30,7 +31,7 @@ mod tests {
                 rating: 84,
                 genre: Genre::Strategy,
                 description: None,
-                release_date: NaiveDate::from_ymd(2014, 3, 11).and_hms(0, 0, 0),
+                release_date: NaiveDate::from_ymd(2014, 3, 11).and_hms(0, 0, 0).to_string(),
             },
         ]))
     }
@@ -42,7 +43,7 @@ mod tests {
             rating: 65,
             description: None,
             genre: Genre::Strategy,
-            release_date: NaiveDate::from_ymd(2016, 3, 11).and_hms(0, 0, 0),
+            release_date: NaiveDate::from_ymd(2016, 3, 11).and_hms(0, 0, 0).to_string(),
         }
     }
 
@@ -55,7 +56,7 @@ mod tests {
 
         assert_eq!(res.status(), StatusCode::OK);
 
-        let expected_json_body = r#"[{"id":1,"title":"Crappy title","rating":35,"genre":"ROLE_PLAYING","description":"Test description...","releaseDate":"2011-09-22T00:00:00"},{"id":2,"title":"Decent game","rating":84,"genre":"STRATEGY","description":null,"releaseDate":"2014-03-11T00:00:00"}]"#;
+        let expected_json_body = r#"[{"id":1,"title":"Crappy title","rating":35,"genre":"ROLE_PLAYING","description":"Test description...","releaseDate":"2011-09-22"},{"id":2,"title":"Decent game","rating":84,"genre":"STRATEGY","description":null,"releaseDate":"2014-03-11"}]"#;
         assert_eq!(res.body(), expected_json_body);
     }
 
@@ -72,7 +73,7 @@ mod tests {
 
         assert_eq!(res.status(), StatusCode::OK);
 
-        let expected_json_body = r#"[{"id":2,"title":"Decent game","rating":84,"genre":"STRATEGY","description":null,"releaseDate":"2014-03-11T00:00:00"}]"#;
+        let expected_json_body = r#"[{"id":2,"title":"Decent game","rating":84,"genre":"STRATEGY","description":null,"releaseDate":"2014-03-11"}]"#;
         assert_eq!(res.body(), expected_json_body);
     }
 

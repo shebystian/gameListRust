@@ -1,3 +1,6 @@
+// importacion de librerias con use
+// para importar modulos con mod
+
 use std::env;
 use warp::Filter;
 
@@ -6,7 +9,10 @@ mod handlers;
 mod routes;
 mod schema;
 mod validators;
-mod tests;
+mod routes_tests;
+mod schema_tests;
+
+//funcion principal main
 
 #[tokio::main]
 async fn main() {
@@ -22,7 +28,7 @@ async fn main() {
 
     let routes = api.with(warp::log("ms_bpd_rust"));
 
-    // Start the server
+    // Inicia el server
     warp::serve(routes).run(([127, 0, 0, 1], 5000)).await;
 }
 

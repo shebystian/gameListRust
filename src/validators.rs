@@ -8,7 +8,7 @@ use serde::Deserialize;
 pub mod validate_game_rating {
     use super::*;
 
-    const ERROR_MESSAGE: &str = "rating must be a number between 0 and 100";
+    const ERROR_MESSAGE: &str = "rating debe ser un numero entre 0 y 100";
 
     pub fn deserialize<'de, D>(deserializer: D) -> Result<u8, D::Error>
     where
