@@ -29,7 +29,7 @@ async fn main() {
     let routes = api.with(warp::log("ms_bpd_rust"));
 
     // Inicia el server
-    warp::serve(routes).run(([127, 0, 0, 1], 5000)).await;
+    warp::serve(routes).run(([127, 0, 0, 1], 8080)).await;
 }
 
 
