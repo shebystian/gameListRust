@@ -9,8 +9,8 @@ mod handlers;
 mod routes;
 mod schema;
 mod validators;
-mod routes_tests;
-mod schema_tests;
+
+
 
 //funcion principal main
 
